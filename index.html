@@ -1,48 +1,66 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <title>Sign Up Form</title>
+    <title>Sign Up</title>
 </head>
 
 <body>
+    <h1>Sign Up</h1>
+    <form id="signup-form">
+        <p>
+            <label for="firstname"> First Name:</label>
+        <div><input type="text" id="firstname" name="firstname" required> </div>
+        </p>
+        <p>
+            <label for="lastname"> First Name:</label>
+        <div><input type="text" id="lastname" name="lastname" required> </div>
+        </p>
+        <p>
+            <label for="email">Email:</label>
+        <div><input type="email" id="email" name="email" required></div>
+        </p>
 
-    <body>
-        <div style="padding: 16px;">
-            <h1>Sign Up</h1>
-        
-        <form>
-            <p>
-                <div><label><b>First Name</b></label></div>
-                <input type="text"/>
-            </p>
-            <p>
-                <div><label><b>Last Name</b></label></div>
-                <input type="text" />
-            </p>
-            <p>
-                <div><label><b>Gender</b></label></div>
-                <input type="radio" name="gender" value="male">Male
-                <input type="radio" name="gender" value="fmale">Female
-            </p>
-            <p>
-                <div><label><b>Email</b></label></div>
-                <input type="email"/>
-            </p>
-            <p>
-                <div><label><b>Password</b></label></div>
-                <input type="password"/>
-            </p>
-            <p>
-                <div><label><b>Confirm Password</b></label></div>
-                <input type="password" />
-            </p>
-           
-            <p><input type="submit" /></p>
-        </form>
-        </div>
+        <p>
+            <label for="password">Password:</label>
+        <div><input type="password" id="password" name="password" required></div>
+        </p>
+        <p>
+            <label for="confirm-password">Confirm Password:</label>
+        <div><input type="password" id="confirmpassword" name="confirm-password" required></div>
+        </p>
 
-    </body>
+        <button type="button" onclick="displayFormData()">Sign Up</button>
+    </form>
+
+    <div id="signup-data" style="display: none;">
+        <h2>Thank you for signing up!</h2>
+        <p>First Name: <span id="display-firstname"></span></p>
+        <p>Last Name: <span id="display-lastname"></span></p>
+        <p>Email: <span id="display-email"></span></p>
+        <p>Password: <span id="display-password"></span></p>
+        <p>Confirm Password: <span id="display-confirm-password"></span></p>
+    </div>
+
+    <script>
+        function displayFormData() {
+
+            const firstname = document.getElementById('firstname').value;
+            const lastname = document.getElementById('lastname').value;
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmpassword = document.getElementById('confirmpassword').value;
+
+
+            document.getElementById('display-firstname').innerHTML = firstname;
+            document.getElementById('display-lastname').innerHTML = lastname;
+            document.getElementById('display-email').innerHTML = email;
+            document.getElementById('display-password').innerHTML = password;
+            document.getElementById('display-confirm-password').innerHTML = confirmpassword;
+            document.getElementById('signup-data').style.display = 'block';
+
+        }
+    </script>
 </body>
 
 </html>
